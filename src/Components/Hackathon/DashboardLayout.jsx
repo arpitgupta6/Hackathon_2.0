@@ -9,10 +9,6 @@ const DashboardLayout = () => {
   const [activeView, setActiveView] = useState("list");
   const [selectedHackathon, setSelectedHackathon] = useState(null); // store selected data for update
 
-  // const handleUpdateClick = () => {
-  //   setActiveView("update");
-  // };
-
   const renderContent = () => {
     switch (activeView) {
       case "list":
