@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Calendar, Trophy, BadgeCheck, Pencil } from "lucide-react";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const formatDate = (dateStr) => {
   const date = new Date(dateStr);
@@ -41,29 +43,31 @@ const HackathonCard = ({
           },
         }
       );
-
+  
       if (response.ok) {
-        console.log("Hackathon deleted successfully!");
+        toast.success("🗑️ Hackathon deleted successfully!", { autoClose: 2000 });
       } else {
-        console.error("Failed to delete hackathon.");
+        toast.error("❌ Failed to delete hackathon.", { autoClose: 2000 });
       }
     } catch (error) {
       console.error("Error deleting hackathon:", error);
+      toast.error("❌ Error deleting hackathon", { autoClose: 2000 });
     }
   };
+  
 
   // {Register API}
   const handleRegister = async () => {
     if (!token) {
-      alert("⚠️ Please log in to register.");
+      toast.error("⚠️ Please log in to register.", { autoClose: 2000 });
       return;
     }
-
+  
     const dummyData = {
       project_title: "Registered Project",
       github_link: "https://github.com/dummy/repo",
     };
-
+  
     setIsLoading(true);
     try {
       const res = await fetch(
@@ -77,16 +81,18 @@ const HackathonCard = ({
           body: JSON.stringify(dummyData),
         }
       );
-
+  
       if (!res.ok) throw new Error("Already registered or error occurred.");
-
-      alert("✅ Registered successfully!");
+  
+      toast.success("✅ Registered successfully!", { autoClose: 2000 });
     } catch (err) {
-      alert("❌ Error: You may have already registered.");
+      toast.error("❌ Error: You may have already registered.", { autoClose: 2000 });
     } finally {
       setIsLoading(false);
     }
   };
+  
+
   // {Hackathon Details API}
   const fetchHackathonDetails = async (id) => {
     try {
@@ -110,14 +116,15 @@ const HackathonCard = ({
       setPrize(hack.prize || "");
     } catch (error) {
       console.error("Fetch hackathon detail error:", error);
-      alert("❌ Error loading hackathon details.");
+      toast.error("❌ Error loading hackathon details.");
     }
   };
+
   // {Hackathon Update API}
   const handleUpdate = async (e) => {
-    e.preventDefault(); // prevent reload
+    e.preventDefault();
     if (!currentId) {
-      alert("No hackathon selected for update.");
+      toast.error("⚠️ No hackathon selected for update.");
       return;
     }
     try {
@@ -138,18 +145,19 @@ const HackathonCard = ({
           }),
         }
       );
-
+  
       if (!response.ok) {
         throw new Error("Failed to update hackathon");
       }
-
-      alert("✅ Hackathon updated successfully!");
-      setIsUpdate(false); // close modal after update
+  
+      toast.success("✅ Hackathon updated successfully!", { autoClose: 2000 });
+      setIsUpdate(false);
     } catch (error) {
       console.error("Update error:", error);
-      alert("❌ Error updating hackathon");
+      toast.error("❌ Error updating hackathon", { autoClose: 2000 });
     }
   };
+  
 
   return (
     <>
@@ -198,10 +206,11 @@ const HackathonCard = ({
           <button
             onClick={handleRegister}
             disabled={isLoading || !hackathon.status}
-            className="mt-4 w-full py-2 bg-gradient-to-r from-indigo-600 to-blue-500 text-white font-semibold rounded-full hover:brightness-110 transition-all disabled:opacity-60"
+            className="mt-4 w-full py-2 bg-gradient-to-r from-indigo-600 to-blue-500 text-white font-semibold rounded-full hover:brightness-110 disabled:opacity-60"
           >
             {isLoading ? "Registering..." : "Register Now"}
           </button>
+          <ToastContainer position="top-center" autoClose={2000} />
 
           {/* Update Button */}
           <button
