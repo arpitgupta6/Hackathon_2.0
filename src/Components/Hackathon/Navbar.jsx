@@ -3,7 +3,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <div>
-      <nav className="flex justify-between items-center bg-white p-4 shadow-xl">
+      <nav className="flex justify-between items-center bg-white p-4 shadow-xl ">
         <div className="flex items-center gap-10">
           <ul>
             <li className="text-gray-700 font-bold text-xl hover:text-blue-600 hover:underline cursor-pointer">

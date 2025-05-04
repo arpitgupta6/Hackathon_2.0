@@ -60,62 +60,66 @@ const UpdateHackathon = ({ selectedHackathon }) => {
   }
 
   return (
-    <div className="max-w-xl mx-auto p-4 bg-white shadow-md rounded ">
-      <h2 className="text-2xl font-bold mb-4">Update Hackathon </h2>
-      <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
-        <div>
-          <label className="block font-semibold">Title</label>
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="w-full border rounded px-3 py-2"
-          />
-        </div>
-        <div>
-          <label className="block font-semibold">Description</label>
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            className="w-full border rounded px-3 py-2"
-          />
-        </div>
-        <div>
-          <label className="block font-semibold">Start Date</label>
-          <input
-            type="date"
-            value={start_date}
-            onChange={(e) => setStartDate(e.target.value)}
-            className="w-full border rounded px-3 py-2"
-          />
-        </div>
-        <div>
-          <label className="block font-semibold">End Date</label>
-          <input
-            type="date"
-            value={end_date}
-            onChange={(e) => setEndDate(e.target.value)}
-            className="w-full border rounded px-3 py-2"
-          />
-        </div>
-        <div>
-          <label className="block font-semibold">Prize</label>
-          <input
-            type="number"
-            value={prize}
-            onChange={(e) => setPrize(e.target.value)}
-            className="w-full border rounded px-3 py-2"
-          />
-        </div>
-        <button
-          type="submit"
-          onClick={handleUpdate}
-          className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700"
-        >
-          Update Hackathon
-        </button>
-      </form>
-    </div>
+    <div className="max-w-xl mx-auto p-4 bg-white shadow-md rounded sm:p-6">
+    <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-center">
+      Update Hackathon
+    </h2>
+    <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
+      <div>
+        <label className="block font-semibold text-lg sm:text-xl">Title</label>
+        <input
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          className="w-full border rounded px-3 py-2 sm:px-4 sm:py-3"
+        />
+      </div>
+      <div>
+        <label className="block font-semibold text-lg sm:text-xl">Description</label>
+        <textarea
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          className="w-full border rounded px-3 py-2 sm:px-4 sm:py-3"
+        />
+      </div>
+      <div>
+        <label className="block font-semibold text-lg sm:text-xl">Start Date</label>
+        <input
+          type="date"
+          value={start_date}
+          onChange={(e) => setStartDate(e.target.value)}
+          className="w-full border rounded px-3 py-2 sm:px-4 sm:py-3"
+        />
+      </div>
+      <div>
+        <label className="block font-semibold text-lg sm:text-xl">End Date</label>
+        <input
+          type="date"
+          value={end_date}
+          onChange={(e) => setEndDate(e.target.value)}
+          className="w-full border rounded px-3 py-2 sm:px-4 sm:py-3"
+        />
+      </div>
+      <div>
+        <label className="block font-semibold text-lg sm:text-xl">Prize</label>
+        <input
+          type="number"
+          value={prize}
+          onChange={(e) => setPrize(e.target.value)}
+          className="w-full border rounded px-3 py-2 sm:px-4 sm:py-3"
+        />
+      </div>
+      <button
+        type="submit"
+        onClick={handleUpdate}
+        className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 w-full sm:px-6 sm:py-3"
+      >
+        Update Hackathon
+      </button>
+    </form>
+  </div>
+  
+  
   );
 };
 

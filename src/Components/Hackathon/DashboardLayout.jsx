@@ -73,7 +73,7 @@ const DashboardLayout = () => {
           </li>
         </ul>
       </div>
-      <div className="flex-1 p-6 overflow-y-auto">{renderContent()}</div>
+      <div className="flex-1 p-6 overflow-y-auto h-screen">{renderContent()}</div>
     </div>
   );
 };

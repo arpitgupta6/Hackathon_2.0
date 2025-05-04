@@ -1,12 +1,12 @@
 import React from "react";
-import Navbar from "./Navbar"; // Common Navbar Component
-import UserDashboard from "./UserDashboard";
+import Navbar from "./Navbar"; //Navbar Component
+import DashboardLayout from "./DashboardLayout"; // Dashboard Layout Component
 
 const Dashboard = () => {
   return (
-    <div>
+    <div className="h-screen">
       <Navbar />
-      <UserDashboard />
+      <DashboardLayout />
     </div>
   );
 };

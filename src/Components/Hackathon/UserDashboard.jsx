@@ -2,7 +2,7 @@ import React from "react";
 import DashboardLayout from "./DashboardLayout";
 const UserDashboard = () => {
   return (
-    <div>
+    <div >
       <DashboardLayout />
     </div>
   );
