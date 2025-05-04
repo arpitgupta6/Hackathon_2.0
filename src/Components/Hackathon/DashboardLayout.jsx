@@ -9,9 +9,9 @@ const DashboardLayout = () => {
   const [activeView, setActiveView] = useState("list");
   const [selectedHackathon, setSelectedHackathon] = useState(null); // store selected data for update
 
-  const handleUpdateClick = () => {
-    setActiveView("update");
-  };
+  // const handleUpdateClick = () => {
+  //   setActiveView("update");
+  // };
 
   const renderContent = () => {
     switch (activeView) {
@@ -24,18 +24,10 @@ const DashboardLayout = () => {
             }}
           />
         );
-      // case "detail":
-      //   return <HackathonDetail />;
       case "application":
         return <HackathonApplication />;
       case "create":
         return <CreateHackathon />;
-      // case "update":
-      //   return selectedHackathon ? (
-      //     <UpdateHackathon selectedHackathon={selectedHackathon} />
-      //   ) : (
-      //     <p className="text-red-500">No hackathon selected for update.</p>
-      //   );
       default:
         return <HackathonList />;
     }
@@ -59,18 +51,6 @@ const DashboardLayout = () => {
               Hackathon List
             </button>
           </li>
-          {/* <li>
-            <button
-              onClick={() => setActiveView("detail")}
-              className={`w-full text-left px-4 py-2 rounded-md ${
-                activeView === "detail"
-                  ? "bg-indigo-100 text-indigo-600 font-semibold"
-                  : "hover:bg-gray-100"
-              }`}
-            >
-              📄 Hackathon Detail
-            </button>
-          </li> */}
           <li>
             <button
               onClick={() => setActiveView("application")}
@@ -95,22 +75,8 @@ const DashboardLayout = () => {
               Create Hackathon
             </button>
           </li>
-          {/* <li>
-            <button
-              onClick={handleUpdateClick}
-              className={`w-full text-left px-4 py-2 rounded-md ${
-                activeView === "update"
-                  ? "bg-indigo-100 text-indigo-600 font-semibold"
-                  : "hover:bg-gray-100"
-              }`}
-            >
-              ✏️ Update Hackathon
-            </button>
-          </li> */}
         </ul>
       </div>
-
-      {/* Main Content */}
       <div className="flex-1 p-6 overflow-y-auto">{renderContent()}</div>
     </div>
   );

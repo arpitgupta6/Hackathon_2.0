@@ -24,6 +24,10 @@ const App = () => {
       <Routes>
         <Route exact path="/SignUp" element={<SignUp />} />
         <Route exact path="/" element={<SignIn />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/forgot-password/verify-reset-otp" element={<VerifyResetOTP />}/>
+        <Route path="/otp-verification" element={<OtpVerification />} />
+        <Route path="/reset-password" element={<ResetPassword />} />
 
         {/* Protected Route for Hackathon */}
         <Route element={<PrivateRoute />}>
@@ -34,17 +38,8 @@ const App = () => {
           <Route path="/user-dashboard" element={<DashboardLayout />} />
         </Route>
 
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route
-          path="/forgot-password/verify-reset-otp"
-          element={<VerifyResetOTP />}
-        />
-        <Route path="/otp-verification" element={<OtpVerification />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
-        {/* <Route path="/Profile" element={<Profile />} /> */}
-
-        {/* <Route path="/create-hackathon" element={<CreateHackathon />} /> */}
-        {/* <Route path="/mentor-dashboard" element={<MentorDashboard />} /> */}
+     
+        
       </Routes>
     </>
   );
