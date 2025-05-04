@@ -45,9 +45,7 @@ const DashboardLayout = () => {
     <div className="flex h-screen bg-gray-100">
       {/* Sidebar */}
       <div className="w-64 bg-white shadow-md p-4">
-        <h2 className="text-2xl font-bold text-indigo-600 mb-6">
-          User Dashboard
-        </h2>
+        <h2 className="text-2xl font-bold text-indigo-600 mb-6">Dashboard</h2>
         <ul className="space-y-4">
           <li>
             <button
@@ -58,7 +56,7 @@ const DashboardLayout = () => {
                   : "hover:bg-gray-100"
               }`}
             >
-              🗂️ Hackathon List
+              Hackathon List
             </button>
           </li>
           {/* <li>

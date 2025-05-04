@@ -1,5 +1,4 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -7,38 +6,21 @@ const Navbar = () => {
       <nav className="flex justify-between items-center bg-white p-4 shadow-xl">
         <div className="flex items-center gap-10">
           <ul>
-          <li>
-            <Link to="/Profile" className="text-gray-700 font-bold text-2xl hover:text-blue-600">
+            <li className="text-gray-700 font-bold text-xl hover:text-blue-600 hover:underline cursor-pointer">
               Profile
-            </Link>
-          </li>
-        </ul>
+            </li>
+          </ul>
         </div>
         <div className="flex items-center gap-10">
           <ul className="flex gap-10">
-            <li>
-              <a
-                href="/"
-                className="text-gray-700 font-bold text-xl hover:text-blue-600"
-              >
-                Home
-              </a>
+            <li className="text-gray-700 font-bold text-xl hover:text-blue-600 hover:underline cursor-pointer">
+              Home
             </li>
-            <li>
-              <a
-                href="/about"
-                className="text-gray-700 font-bold text-xl hover:text-blue-600"
-              >
-                About
-              </a>
+            <li className="text-gray-700 font-bold text-xl hover:text-blue-600 hover:underline cursor-pointer">
+              About
             </li>
-            <li>
-              <a
-                href="/contact"
-                className="text-gray-700 font-bold text-xl hover:text-blue-600"
-              >
-                Contact
-              </a>
+            <li className="text-gray-700 font-bold text-xl hover:text-blue-600 hover:underline cursor-pointer">
+              Contact
             </li>
           </ul>
           <button className="bg-blue-600 text-white p-2 rounded-md cursor-pointer ">

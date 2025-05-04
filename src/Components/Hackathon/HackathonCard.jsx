@@ -225,7 +225,7 @@ const HackathonCard = ({
       </div>
 
       {isUpdate && (
-        <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-[#a3c4fd] bg-opacity-30 flex justify-center items-center z-50 ">
           <div className="bg-white rounded-lg shadow-lg p-6 max-w-md w-full relative">
             {/* Close Button */}
             <button
@@ -235,13 +235,13 @@ const HackathonCard = ({
               ✖
             </button>
 
-            <h2 className="text-2xl font-bold mb-4 text-center">
+            <h2 className="text-3xl font-bold mb-4 text-center">
               Update Hackathon
             </h2>
 
             <form onSubmit={handleUpdate} className="space-y-4">
               <div>
-                <label className="block font-semibold">Title</label>
+                <label className="block font-semibold text-xl">Title</label>
                 <input
                   type="text"
                   value={title}
@@ -250,7 +250,9 @@ const HackathonCard = ({
                 />
               </div>
               <div>
-                <label className="block font-semibold">Description</label>
+                <label className="block font-semibold text-xl ">
+                  Description
+                </label>
                 <textarea
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
@@ -258,7 +260,9 @@ const HackathonCard = ({
                 />
               </div>
               <div>
-                <label className="block font-semibold">Start Date</label>
+                <label className="block font-semibold text-xl">
+                  Start Date
+                </label>
                 <input
                   type="date"
                   value={start_date}
@@ -267,7 +271,7 @@ const HackathonCard = ({
                 />
               </div>
               <div>
-                <label className="block font-semibold">End Date</label>
+                <label className="block font-semibold text-xl">End Date</label>
                 <input
                   type="date"
                   value={end_date}
@@ -276,7 +280,7 @@ const HackathonCard = ({
                 />
               </div>
               <div>
-                <label className="block font-semibold">Prize</label>
+                <label className="block font-semibold text-xl">Prize</label>
                 <input
                   type="number"
                   value={prize}
@@ -286,7 +290,7 @@ const HackathonCard = ({
               </div>
               <button
                 type="submit"
-                className="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 w-full"
+                className="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 w-full"
               >
                 Update Hackathon
               </button>

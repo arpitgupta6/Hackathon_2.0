@@ -19,17 +19,20 @@ export default function SignIn() {
     const token = localStorage.getItem("authToken");
     e.preventDefault();
     try {
-      const response = await fetch(" https://mentor-app-api.onrender.com/accounts/signin/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          email: formData.email,
-          password: formData.password,
-        }),
-      });
+      const response = await fetch(
+        " https://mentor-app-api.onrender.com/accounts/signin/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            email: formData.email,
+            password: formData.password,
+          }),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();

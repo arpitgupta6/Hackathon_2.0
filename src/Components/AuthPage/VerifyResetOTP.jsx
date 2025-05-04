@@ -33,23 +33,30 @@ const VerifyResetOTP = () => {
       return;
     }
 
-    setError(""); 
-    setSuccessMessage(""); 
+    setError("");
+    setSuccessMessage("");
 
     try {
-      const response = await fetch("https://mentor-app-api.onrender.com/accounts/verify-reset-otp/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, otp: enteredOtp }),
-      });
+      const response = await fetch(
+        "https://mentor-app-api.onrender.com/accounts/verify-reset-otp/",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, otp: enteredOtp }),
+        }
+      );
 
       const data = await response.json();
 
       if (response.ok) {
         setSuccessMessage("OTP Verified Successfully! Redirecting...");
         setTimeout(() => {
-          navigate(`/reset-password?email=${encodeURIComponent(email)}&otp=${enteredOtp}`);
-        }, 2000); 
+          navigate(
+            `/reset-password?email=${encodeURIComponent(
+              email
+            )}&otp=${enteredOtp}`
+          );
+        }, 2000);
       } else {
         setError(data.error || "Invalid OTP, please try again.");
       }
@@ -62,10 +69,16 @@ const VerifyResetOTP = () => {
     <div className="h-screen flex items-center justify-center px-4 bg-[#A3C4FD]">
       <div className="bg-white p-10 rounded-2xl shadow-lg w-full max-w-3xl flex flex-row items-center">
         <div className="w-1/2 flex justify-center">
-          <img src={ResetPasswordOtpLogo} alt="Logo" className="w-[100%] h-[50%] mb-4" />
+          <img
+            src={ResetPasswordOtpLogo}
+            alt="Logo"
+            className="w-[100%] h-[50%] mb-4"
+          />
         </div>
         <div className="relative z-10 bg-white p-8 rounded-3xl w-full max-w-md">
-          <h2 className="text-3xl font-bold text-[#2946ae] text-center mb-4">OTP Verification</h2>
+          <h2 className="text-3xl font-bold text-[#2946ae] text-center mb-4">
+            OTP Verification
+          </h2>
           <p className="text-lg text-gray-600 text-center mb-6">
             Enter the OTP sent to{" "}
             <span className="font-semibold text-blue-500">{email}</span>
@@ -76,10 +89,15 @@ const VerifyResetOTP = () => {
             <p className="text-red-500 text-center font-medium mb-4">{error}</p>
           )}
           {successMessage && (
-            <p className="text-green-600 text-center font-medium mb-4">{successMessage}</p>
+            <p className="text-green-600 text-center font-medium mb-4">
+              {successMessage}
+            </p>
           )}
 
-          <form onSubmit={handleVerifyOtp} className="flex flex-col items-center">
+          <form
+            onSubmit={handleVerifyOtp}
+            className="flex flex-col items-center"
+          >
             <div className="flex justify-center gap-3 mb-5">
               {otp.map((digit, index) => (
                 <input

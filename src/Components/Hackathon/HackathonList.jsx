@@ -9,7 +9,9 @@ const HackathonList = () => {
   useEffect(() => {
     const fetchHackathons = async () => {
       try {
-        const response = await fetch("https://mentor-app-api.onrender.com/hackathons/create-hackathon/");
+        const response = await fetch(
+          "https://mentor-app-api.onrender.com/hackathons/create-hackathon/"
+        );
         const data = await response.json();
         setHackathons(data.data);
       } catch (error) {
@@ -22,10 +24,12 @@ const HackathonList = () => {
 
   const handleSelectForUpdate = async (hackathon) => {
     try {
-      const response = await fetch(`https://mentor-app-api.onrender.com/hackathons/create-hackathon/${hackathon.id}/`);
+      const response = await fetch(
+        `https://mentor-app-api.onrender.com/hackathons/create-hackathon/${hackathon.id}/`
+      );
       const data = await response.json();
-      setSelectedHackathon(data);   // ✅ full latest data set
-      setIsUpdateOpen(true);         // ✅ open modal
+      setSelectedHackathon(data); // ✅ full latest data set
+      setIsUpdateOpen(true); // ✅ open modal
     } catch (error) {
       console.error("Failed to fetch hackathon details", error);
     }
@@ -36,7 +40,7 @@ const HackathonList = () => {
       {hackathons.map((hackathon) => (
         <HackathonCard
           key={hackathon.id}
-          id={hackathon.id} 
+          id={hackathon.id}
           hackathon={hackathon}
           onSelectForUpdate={handleSelectForUpdate}
           isUpdateOpen={isUpdateOpen}

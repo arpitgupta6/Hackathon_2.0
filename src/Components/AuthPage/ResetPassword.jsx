@@ -9,7 +9,7 @@ export default function ResetPassword() {
   const [showPassword, setShowPassword] = useState(false);
   const [searchParams] = useSearchParams(); // Get token from URL
   const email = searchParams.get("email");
-  const otp = searchParams.get("otp")?.replace(/[^\d]/g, ""); 
+  const otp = searchParams.get("otp")?.replace(/[^\d]/g, "");
   const navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -24,10 +24,10 @@ export default function ResetPassword() {
 
     setErrorMessage(""); // Clear previous errors
 
-    const payload = { 
-      email: email || "", 
-      otp: otp || "", 
-      new_password: password || "" 
+    const payload = {
+      email: email || "",
+      otp: otp || "",
+      new_password: password || "",
     };
     console.log("Payload:", payload); // Debugging
 

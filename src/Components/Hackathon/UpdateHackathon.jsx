@@ -1,45 +1,48 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const UpdateHackathon = ({ selectedHackathon }) => {
   // Convert ISO date to YYYY-MM-DD for input fields
   const formatDate = (dateString) => {
-    return dateString ? new Date(dateString).toISOString().split("T")[0] : '';
+    return dateString ? new Date(dateString).toISOString().split("T")[0] : "";
   };
-  const token = localStorage.getItem('authToken');
+  const token = localStorage.getItem("authToken");
 
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [start_date, setStartDate] = useState('');
-  const [end_date, setEndDate] = useState('');
-  const [prize, setPrize] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [start_date, setStartDate] = useState("");
+  const [end_date, setEndDate] = useState("");
+  const [prize, setPrize] = useState("");
 
   // Load initial values from selectedHackathon
   useEffect(() => {
     if (selectedHackathon) {
-      setTitle(selectedHackathon.title || '');
-      setDescription(selectedHackathon.description || '');
+      setTitle(selectedHackathon.title || "");
+      setDescription(selectedHackathon.description || "");
       setStartDate(formatDate(selectedHackathon.start_date));
       setEndDate(formatDate(selectedHackathon.end_date));
-      setPrize(selectedHackathon.prize || '');
+      setPrize(selectedHackathon.prize || "");
     }
   }, [selectedHackathon]);
 
   const handleUpdate = async () => {
     try {
-      const response = await fetch(`https://mentor-app-api.onrender.com/hackathons/create-hackathon/${selectedHackathon.id}/`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Token ${token}`
-        },
-        body: JSON.stringify({
-          title,
-          description,
-          start_date,
-          end_date,
-          prize
-        }),
-      });
+      const response = await fetch(
+        `https://mentor-app-api.onrender.com/hackathons/create-hackathon/${selectedHackathon.id}/`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Token ${token}`,
+          },
+          body: JSON.stringify({
+            title,
+            description,
+            start_date,
+            end_date,
+            prize,
+          }),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Failed to update hackathon");
@@ -57,8 +60,8 @@ const UpdateHackathon = ({ selectedHackathon }) => {
   }
 
   return (
-    <div className="max-w-xl mx-auto p-4 bg-white shadow-md rounded">
-      <h2 className="text-2xl font-bold mb-4">Update Hackathon</h2>
+    <div className="max-w-xl mx-auto p-4 bg-white shadow-md rounded ">
+      <h2 className="text-2xl font-bold mb-4">Update Hackathon </h2>
       <form onSubmit={(e) => e.preventDefault()} className="space-y-4">
         <div>
           <label className="block font-semibold">Title</label>
