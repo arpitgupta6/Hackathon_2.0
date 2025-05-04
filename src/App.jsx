@@ -10,7 +10,7 @@ import VerifyResetOTP from "./Components/AuthPage/VerifyResetOTP";
 import PrivateRoute from "./Components/AuthPage/PrivateRoute";
 // import Profile from "./Components/AuthPage/Profile";
 // import MentorDashboard from "./Components/Hackathon/MentorDashboard";
-import UserDashboard from "./Components/Hackathon/UserDashboard";
+// import UserDashboard from "./Components/Hackathon/UserDashboard";
 import CreateHackathon from "./Components/Hackathon/CreateHackathon";
 import HackathonDetail from "./Components/Hackathon/HackathonDetail";
 import ApplyHackathon from "./Components/Hackathon/HackathonApplication";
