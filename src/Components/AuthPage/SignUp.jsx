@@ -205,7 +205,7 @@ export default function SignUp() {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full text-lg bg-[#2946ae] text-white py-3 rounded-full font-semibold transition-all ${
+              className={`w-full text-lg bg-[#2946ae] text-white py-3 rounded-full font-semibold transition-all cursor-pointer ${
                 loading ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
               }`}
             >

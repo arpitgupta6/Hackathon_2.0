@@ -150,7 +150,7 @@ export default function ResetPassword() {
             {/* Submit */}
             <button
               type="submit"
-              className="w-full text-base md:text-lg bg-[#2946ae] text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-all"
+              className="w-full cursor-pointer text-base md:text-lg bg-[#2946ae] text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-all"
             >
               Reset Password
             </button>

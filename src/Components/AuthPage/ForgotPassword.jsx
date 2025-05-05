@@ -97,7 +97,7 @@ export default function ForgotPassword() {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full text-lg bg-[#2946ae] text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-all"
+              className="w-full text-lg bg-[#2946ae] text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-all cursor-pointer"
             >
               Send OTP
             </button>

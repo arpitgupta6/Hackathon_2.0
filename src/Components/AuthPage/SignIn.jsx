@@ -143,7 +143,7 @@ export default function SignIn() {
             {/* Sign In Button */}
             <button
               type="submit"
-              className={`w-full text-base md:text-lg text-white py-3 rounded-full font-semibold transition-all ${
+              className={`w-full text-base md:text-lg text-white py-3 rounded-full font-semibold transition-all cursor-pointer ${
                 loading
                   ? "bg-gray-400 cursor-not-allowed"
                   : "bg-[#2946ae] hover:bg-blue-700"
