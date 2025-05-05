@@ -16,6 +16,7 @@ export default function SignUp() {
     password: "",
     confirmPassword: "",
   });
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -24,9 +25,11 @@ export default function SignUp() {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
+    setLoading(true); // start loading
 
     if (formData.password !== formData.confirmPassword) {
       toast.error("Passwords do not match!");
+      setLoading(false);
       return;
     }
 
@@ -62,6 +65,8 @@ export default function SignUp() {
     } catch (error) {
       console.error("Error:", error);
       toast.error("Error signing up. Please try again.");
+    } finally {
+      setLoading(false); // stop loading
     }
   };
 
@@ -71,7 +76,11 @@ export default function SignUp() {
       <div className="bg-white p-4 md:p-8 rounded-2xl shadow-lg w-full max-w-5xl flex flex-col md:flex-row items-center md:items-start gap-6 md:gap-8">
         {/* Left Section - Logo */}
         <div className="w-full md:w-1/2 flex justify-center">
-          <img src={SignUpLogo} alt="Logo" className="w-full max-w-xs md:max-w-sm h-auto" />
+          <img
+            src={SignUpLogo}
+            alt="Logo"
+            className="w-full max-w-xs md:max-w-sm h-auto"
+          />
         </div>
 
         {/* Right Section - Sign Up Form */}
@@ -195,9 +204,12 @@ export default function SignUp() {
             {/* Sign Up Button */}
             <button
               type="submit"
-              className="w-full text-lg bg-[#2946ae] text-white py-3 rounded-full font-semibold hover:bg-blue-700 transition-all"
+              disabled={loading}
+              className={`w-full text-lg bg-[#2946ae] text-white py-3 rounded-full font-semibold transition-all ${
+                loading ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
+              }`}
             >
-              Sign Up
+              {loading ? "Creating account..." : "Sign Up"}
             </button>
           </form>
 
